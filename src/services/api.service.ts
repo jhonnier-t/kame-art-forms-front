@@ -1,7 +1,7 @@
 import axios from 'axios'
 import type { ConsentFormData, SubmitResponse } from '../types/consent.types'
 
-const BASE_URL = '/api/consent'
+const BASE_URL = `${import.meta.env.VITE_API_URL ?? ''}/api/consent`
 
 /**
  * Maps camelCase frontend fields to snake_case backend fields

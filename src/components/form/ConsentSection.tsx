@@ -24,37 +24,56 @@ export function ConsentSection({ data, errors, onChange }: Props) {
       {/* Scrollable consent document */}
       <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 max-h-48 sm:max-h-60 overflow-y-auto text-sm text-gray-700 leading-relaxed space-y-3">
         <p className="font-semibold text-gray-800 uppercase tracking-wide text-xs">
-          Documento de Consentimiento Informado
+          Consentimiento Informado — Tatuajes y Perforaciones (Piercing)
         </p>
         <p>
-          Yo, el/la paciente o representante legal, declaro que he recibido información suficiente,
-          clara y comprensible sobre el procedimiento/tratamiento al que voy a ser sometido(a),
-          incluyendo sus objetivos, beneficios, riesgos y alternativas existentes.
+          Yo, el/la cliente o representante legal, declaro libre y voluntariamente que deseo realizarme
+          un procedimiento de <strong>tatuaje y/o perforación corporal (piercing)</strong> en el estudio
+          KameArt, y que he sido informado(a) de manera clara y suficiente sobre su naturaleza,
+          riesgos y cuidados posteriores.
         </p>
         <p>
-          <strong>Propósito del tratamiento:</strong> El procedimiento consiste en las intervenciones
-          estéticas o terapéuticas que serán detalladas y explicadas por el profesional a cargo antes
-          de su realización.
+          <strong>Naturaleza del procedimiento:</strong> El tatuaje consiste en la introducción de
+          pigmentos en la dermis mediante agujas estériles de un solo uso. El piercing consiste en la
+          perforación de tejido corporal para la inserción de joyería. Ambos procedimientos son
+          realizados por artistas certificados utilizando material estéril y descartable.
         </p>
         <p>
-          <strong>Riesgos y beneficios:</strong> Comprendo que todo procedimiento tiene riesgos
-          inherentes y que el profesional ha explicado los posibles efectos secundarios. He tenido la
-          oportunidad de hacer preguntas y estas han sido respondidas satisfactoriamente.
+          <strong>Riesgos conocidos:</strong> Comprendo que estos procedimientos conllevan riesgos
+          inherentes que incluyen, pero no se limitan a: infección local, reacciones alérgicas a
+          pigmentos o materiales, queloides, sangrado, dolor e inflamación. En personas con
+          enfermedades como diabetes, hemofilia, trastornos de coagulación, enfermedades
+          autoinmunes o VIH, los riesgos pueden ser mayores. Declaro no padecer ninguna condición
+          médica que contraindique el procedimiento, o en caso de tenerla, haber informado al artista.
         </p>
         <p>
-          <strong>Derechos del paciente:</strong> Tengo derecho a retirar este consentimiento en
-          cualquier momento antes del inicio del procedimiento, sin que esto afecte negativamente la
-          calidad de la atención que recibiré.
+          <strong>Restricción para menores de edad:</strong> Las personas menores de 18 años
+          requieren la presencia física y firma del padre, madre o representante legal debidamente
+          identificado para la realización de cualquier procedimiento. KameArt se reserva el derecho
+          de negar el servicio si no se cumple este requisito.
         </p>
         <p>
-          <strong>Tratamiento de datos personales:</strong> Mis datos personales serán tratados de
-          conformidad con la política de privacidad vigente y la legislación de protección de datos.
-          Serán utilizados únicamente para fines relacionados con la prestación del servicio.
+          <strong>Cuidados posteriores:</strong> He recibido o recibiré instrucciones de cuidado
+          post-procedimiento. Entiendo que el resultado final y la cicatrización dependen en gran
+          medida del seguimiento de dichas instrucciones. KameArt no se responsabiliza por
+          complicaciones derivadas del incumplimiento de los cuidados indicados.
         </p>
         <p>
-          <strong>Confidencialidad:</strong> La información suministrada será tratada con total
-          confidencialidad y solo será compartida con el personal necesario para la prestación del
-          servicio.
+          <strong>Estado de salud y sustancias:</strong> Declaro que no me encuentro bajo los efectos
+          del alcohol ni de sustancias psicoactivas, y que mi estado de salud en el momento de la
+          firma es apto para la realización del procedimiento.
+        </p>
+        <p>
+          <strong>Permanencia e irreversibilidad:</strong> Comprendo que los tatuajes son
+          permanentes y que su eliminación requiere procedimientos adicionales (láser) que no son
+          competencia de KameArt. Las perforaciones pueden cerrarse si se retira la joyería, pero
+          pueden dejar marcas visibles.
+        </p>
+        <p>
+          <strong>Tratamiento de datos personales:</strong> Mis datos personales y los registros
+          fotográficos del procedimiento serán tratados conforme a la Ley 1581 de 2012 (Colombia)
+          y demás normativa aplicable. Serán utilizados únicamente para la gestión del servicio
+          y seguimiento del cliente.
         </p>
       </div>
 
@@ -65,7 +84,7 @@ export function ConsentSection({ data, errors, onChange }: Props) {
         <Checkbox
           id="hasReadInformation"
           required
-          label="He leído y comprendido la información sobre el procedimiento y mis preguntas han sido respondidas satisfactoriamente."
+          label="He leído y comprendido este documento de consentimiento informado. He tenido la oportunidad de hacer preguntas y estas han sido respondidas satisfactoriamente."
           checked={data.hasReadInformation}
           onChange={(v) => update('hasReadInformation', v)}
           error={errors.hasReadInformation}
@@ -74,7 +93,7 @@ export function ConsentSection({ data, errors, onChange }: Props) {
         <Checkbox
           id="consentsToProcedure"
           required
-          label="Doy mi consentimiento voluntario e informado para la realización del procedimiento / tratamiento."
+          label="Doy mi consentimiento voluntario e informado para la realización del tatuaje y/o perforación (piercing), conociendo los riesgos asociados y declarando que mi estado de salud es apto para el procedimiento."
           checked={data.consentsToProcedure}
           onChange={(v) => update('consentsToProcedure', v)}
           error={errors.consentsToProcedure}
@@ -83,7 +102,7 @@ export function ConsentSection({ data, errors, onChange }: Props) {
         <Checkbox
           id="authorizesDataProcessing"
           required
-          label="Autorizo el tratamiento de mis datos personales conforme a la política de privacidad del prestador del servicio."
+          label="Autorizo el tratamiento de mis datos personales por parte de KameArt conforme a la Ley 1581 de 2012 y la política de privacidad del estudio, para la gestión del servicio y seguimiento."
           checked={data.authorizesDataProcessing}
           onChange={(v) => update('authorizesDataProcessing', v)}
           error={errors.authorizesDataProcessing}
@@ -91,7 +110,7 @@ export function ConsentSection({ data, errors, onChange }: Props) {
 
         <Checkbox
           id="authorizesMedia"
-          label="Autorizo el registro fotográfico o de video del procedimiento con fines de seguimiento clínico o académico. (opcional)"
+          label="Autorizo el registro fotográfico del tatuaje y/o perforación realizado(a) para fines de portafolio artístico y redes sociales de KameArt. Mi identidad solo será publicada con mi consentimiento expreso. (opcional)"
           checked={data.authorizesMedia}
           onChange={(v) => update('authorizesMedia', v)}
         />
